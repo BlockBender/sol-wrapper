@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolWrap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">PROCESSING...</div>
+    </div>
+
+    <div class="toast-container" id="toast-container">
+        <!-- Toasts will be dynamically added here -->
+    </div>
+
+    <div class="wallet-modal" id="wallet-modal" style="display: none;">
+        <div class="wallet-modal-content">
+            <h2>SELECT WALLET</h2>
+            <div class="wallet-list">
+                <!-- Wallet options will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="info-modal" id="info-modal" style="display: none;">
+        <div class="info-modal-content">
+            <h2>ESSENTIAL INFO</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>WHY WRAP SOL?</h3>
+                    <p>WSOL required for DeFi protocols</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>TRANSACTION FEES</h3>
+                    <p>Keep SOL for network fees</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>SECURITY FIRST</h3>
+                    <p>Verify all transactions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                SolWrap
+            </div>
+            <div class="nav-buttons">
+                <button id="info-btn" class="button">
+                    INFO
+                </button>
+                <button id="connect-wallet" class="button">
+                    <span>CONNECT WALLET</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 data-text="WRAP YOUR SOL TOKENS">WRAP YOUR SOL TOKENS</h1>
+            <p>Convert your SOL to WSOL seamlessly</p>
+
+            <div class="wrap-container">
+                <div class="balance-container">
+                    <div class="balance">
+                        <span id="sol-balance">SOL: 0</span>
+                    </div>
+                    <div class="balance">
+                        <span id="wsol-balance">WSOL: 0</span>
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <input type="number" 
+                           id="wrap-amount" 
+                           placeholder="ENTER SOL AMOUNT" 
+                           min="0" 
+                           step="0.01">
+                    <div class="error-message" id="amount-error"></div>
+                </div>
+
+                <button id="wrap-btn" class="button">
+                    WRAP SOL
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pixel-footer">
+        <div class="social-links">
+            <a href="https://twitter.com" target="_blank" class="pixel-icon">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://t.me" target="_blank" class="pixel-icon">
+                <i class="fab fa-telegram"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://bundle.run/buffer@6.0.3"></script>
+    <script src="https://solflare.com/provider.js"></script>
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <script src="{{ url_for('static', filename='js/background.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
